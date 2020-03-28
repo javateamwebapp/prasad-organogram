@@ -1,7 +1,5 @@
 package organogram.hhcl.db;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Properties;
 import javax.sql.DataSource;
 import com.zaxxer.hikari.HikariDataSource;
@@ -10,6 +8,7 @@ import com.zaxxer.hikari.HikariDataSource;
  * Utility class which is responsible to get JDBC connection object using 
  * DataSource connection pool With MYSQL Database.
  */
+@SuppressWarnings("unused")
 public class DBUtil {
 	private static final String DB_USERNAME="db.username";
 	private static final String DB_PASSWORD="db.password";
@@ -23,7 +22,7 @@ public class DBUtil {
 	static{
 		try {
 			properties = new Properties();
-			properties.load(new FileInputStream(Path+"\\src\\database.properties"));
+			properties.load(new FileInputStream(Path+"//database.properties"));
 			dataSource = new HikariDataSource();
 			dataSource.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS));
 			dataSource.setJdbcUrl(properties.getProperty(DB_URL));
@@ -34,7 +33,7 @@ public class DBUtil {
 			dataSource.setAutoCommit(false);
 			dataSource.setLoginTimeout(3);
 			
-		} catch (IOException | SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

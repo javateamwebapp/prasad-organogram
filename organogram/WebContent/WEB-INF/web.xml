@@ -9,4 +9,27 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+ <listener>
+        <listener-class>organogram.hhcl.invoker.OrganogramListener</listener-class>
+</listener>
+ <listener>
+	<listener-class>
+             organogram.hhcl.invoker.Listener 
+        </listener-class>
+   </listener>
+   
+  <servlet>
+    <description></description>
+    <display-name>WelcomeServlet</display-name>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <servlet-class>organogram.hhcl.service.WelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <url-pattern>/WelcomeServlet</url-pattern>
+  </servlet-mapping>
+ 
+
+
+
 </web-app>
